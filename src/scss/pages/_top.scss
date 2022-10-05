@@ -1,0 +1,212 @@
+.top {
+    .cont1 {
+        background: url(../../../assets/images/top/mv.webp) no-repeat center center / cover;
+        width: 100%;
+        min-height: calc(100vh - 138px);
+        position: relative;
+
+        .cont1__text {
+            position: absolute;
+            content: "";
+            @include top(380px);
+            @include left(270px);
+            @include fs(48px);
+            font-weight: $medium;
+            @include fontZen;
+            letter-spacing: 0.075em;
+            line-height: calc(64 / 48);
+            color: #FFFFFF;
+        }
+
+        .cont1__time {
+            position: absolute;
+            @include bottom(0);
+            @include left(0);
+            content: "";
+        }
+
+        .circle__logo {
+            position: absolute;
+            content: "";
+            right: 10%;
+            top: 30%;
+            animation: 8s linear infinite rotation1;
+            display: inline-block;
+            width: 543px;
+            height: 548px;
+        }
+    }
+
+    .cont2 {
+        background: #F0FFEF;
+        @include pt(48px);
+        @include pb(50px);
+
+        .wrap-1080 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .cont2__treatment {
+                @include fs(28px);
+                @include width(28%);
+            }
+
+            ul {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                flex-wrap: wrap;
+                @include width(70%);
+
+                li {
+                    @include width(calc(25% - 17px * 3/4));
+                    text-align: center;
+                    background: #FFFFFF;
+                    border-radius: 8px;
+                    position: relative;
+
+                    &:after {
+                        @include arrow-right;
+                        @include bottom(8px);
+                        @include left(50%);
+                        @include tx(-50%);
+                        transition-duration: 0.5s;
+                    }
+
+                    &:not(:nth-of-type(4n + 1)) {
+                        @include ml(17px)
+                    }
+
+                    &:nth-of-type(n + 5) {
+                        @include mt(16px)
+                    }
+
+                    &:hover {
+                        &::after {
+                            @include tx(0%);
+                        }
+                    }
+
+                    a {
+                        display: block;
+                        @include pt(19px);
+                        @include pb(21px);
+                    }
+
+                    div {
+                        @include fs(14px);
+                        @include mt(6px);
+                        font-weight: $bold;
+                        letter-spacing: 0.064em;
+                    }
+                }
+            }
+        }
+    }
+
+    .cont3 {
+        @include pt(56px);
+        overflow: hidden;
+        position: relative;
+
+        .wrap-1280 {
+            position: relative;
+
+            .logo {
+                position: absolute;
+                content: "";
+                top: -106px;
+                left: -182px;
+                z-index: -1;
+                animation: 8s linear infinite rotation1;
+            }
+
+            h2 {
+                text-align: center;
+            }
+
+            .cont3__flex {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                @include mt(40px);
+
+                figure {
+                    @include width(79%);
+                }
+
+                div {
+                    font-weight: $bold;
+                    @include fs(32px);
+                    position: relative;
+
+                    &::after {
+                        position: absolute;
+                        top: -220px;
+                        left: 380px;
+                        content: "";
+                        background: url(../../../assets/images/top/cont3-teeth.webp) no-repeat center center / contain;
+                        width: 262px;
+                        height: 191px;
+                    }
+
+                    p {
+                        @include fontJose;
+                        @include fs(17px);
+                        color: #32B584;
+                        position: relative;
+
+                        &:before {
+                            @include arrow-right;
+                            @include top(50%);
+                            @include ty(-50%);
+                            @include left(0);
+                        }
+                    }
+                }
+            }
+
+            ul {
+                max-width: 1080px;
+                @include width(100%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                margin: 0 auto;
+
+                li {
+                    @include width(calc(30% - 30px * 2/3));
+                    @include fs(20px);
+                    font-weight: $bold;
+                    position: relative;
+                    border-bottom: 1px solid #DDDDDD;
+                    @include pl(31px);
+
+                    &:not(:nth-of-type(3n+1)) {
+                        @include ml(30px);
+                    }
+
+                    &:nth-of-type(n+4) {
+                        @include mt(27px);
+                    }
+
+                    &:before {
+                        @include arrow-right;
+                        @include top(50%);
+                        @include ty(-50%);
+                        @include left(0);
+                        transition-duration: 0.5s;
+                    }
+
+                    &:hover {
+                        &::before {
+                            @include left(3%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,123 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F0FFEF;
+
+    .header__left {
+        background: #ffffff;
+        @include width(20%);
+
+        figure {
+            padding: 17px 22px 34px 46px;
+        }
+    }
+
+    .header__right {
+        @include width(80%);
+
+        .header__right-top {
+            display: flex;
+            align-items: center;
+            @include fontZen;
+            font-weight: $medium;
+            @include fs(14px);
+            @include pr(34px);
+            justify-content: right;
+            letter-spacing: 0;
+            @include height(56px);
+
+            li {
+                @include fs(14px);
+
+                &:nth-of-type(2) {
+                    @include ml(60px);
+                }
+
+                &:nth-of-type(3) {
+                    @include ml(34px);
+                }
+
+                &:nth-of-type(4) {
+                    @include ml(16px);
+                }
+            }
+        }
+
+        .header__right-bottom {
+            display: flex;
+            align-items: center;
+            background: #FFFFFF;
+            justify-content: right;
+            @include pr(93px);
+            @include height(80px);
+
+            li {
+                @include fontZen;
+                font-weight: $medium;
+                @include fs(17px);
+                position: relative;
+                letter-spacing: 0.04em;
+
+                &:nth-of-type(1) {
+                    &:after {
+                        position: absolute;
+                        content: "";
+                        background: url(../../../assets/images/header/arrow-bottom.svg) no-repeat center center /contain;
+                        @include bottom(-10px);
+                        @include left(50%);
+                        @include tx(-50%);
+                        @include width(9px);
+                        @include height(4px);
+                    }
+                }
+
+                &:nth-of-type(2) {
+                    @include ml(70px);
+
+                    &:after {
+                        position: absolute;
+                        content: "";
+                        background: url(../../../assets/images/header/arrow-bottom.svg) no-repeat center center /contain;
+                        @include bottom(-10px);
+                        @include left(50%);
+                        @include tx(-50%);
+                        @include width(9px);
+                        @include height(4px);
+                    }
+                }
+
+                &:nth-of-type(3) {
+                    @include ml(56px);
+
+                    &:after {
+                        position: absolute;
+                        content: "";
+                        background: url(../../../assets/images/header/arrow-bottom.svg) no-repeat center center /contain;
+                        @include bottom(-10px);
+                        @include left(50%);
+                        @include tx(-50%);
+                        @include width(9px);
+                        @include height(4px);
+                    }
+                }
+
+                &:nth-of-type(4) {
+                    @include ml(70px);
+                }
+
+                &:nth-of-type(5) {
+                    @include ml(56px);
+                }
+
+                &:nth-of-type(6) {
+                    @include ml(90px);
+                }
+
+                &:nth-of-type(7) {
+                    @include ml(56px);
+                }
+            }
+        }
+    }
+}

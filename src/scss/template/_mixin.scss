@@ -1,127 +1,400 @@
-//width
-
-@mixin width($pc) {
-  width: 100%;
-  max-width: calc(#{$pc} + 40px);
-  margin: 0 auto;
-  padding: 0 20px;
-
-  @include mq(s) {
-    padding: 0 20px;
-    max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
+/*-------------------------     mixin1    -------------------------*/
+@mixin pc($min: 100%) {
+  @media(min-width:$min) {
+    @content;
   }
 }
 
-@mixin width2($pc) {
-  width: 100%;
-  max-width: calc(#{$pc} + 40px);
-  margin: 0 auto;
-  padding: 0 20px;
-
-  @include mq(s) {
-    padding: 0;
-    max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
+@mixin tab($max: 1024px) {
+  @media(max-width:$max) {
+    @content;
   }
 }
 
-//display:flex;
-
-@mixin flex($justify: space-between, $align: stretch) {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: $justify;
-  align-items: $align;
+@mixin sp($max: 767px) {
+  @media(max-width:$max) {
+    @content;
+  }
 }
 
-//font-size
-@mixin fs($pc: 1.6rem, $tab: 1.6rem, $sp: 1.4rem) {
+@mixin hov {
+  @include pc {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+/*-------------------------     mixin2    -------------------------*/
+@mixin top($pc: 0, $tab: $pc, $sp: $tab) {
+  position: absolute;
+  top: $pc;
+
+  @include tab {
+    top: $tab;
+  }
+
+  @include sp {
+    top: $sp;
+  }
+}
+
+@mixin right($pc: 0, $tab: $pc, $sp: $tab) {
+  position: absolute;
+  right: $pc;
+
+  @include tab {
+    right: $tab;
+  }
+
+  @include sp {
+    right: $sp;
+  }
+}
+
+@mixin bottom($pc: 0, $tab: $pc, $sp: $tab) {
+  position: absolute;
+  bottom: $pc;
+
+  @include tab {
+    bottom: $tab;
+  }
+
+  @include sp {
+    bottom: $sp;
+  }
+}
+
+@mixin left($pc: 0, $tab: $pc, $sp: $tab) {
+  position: absolute;
+  left: $pc;
+
+  @include tab {
+    left: $tab;
+  }
+
+  @include sp {
+    left: $sp;
+  }
+}
+
+@mixin tx($pc: 0, $tab: $pc, $sp: $tab) {
+  transform: translateX($pc);
+
+  @include tab {
+    transform: translateX($tab);
+  }
+
+  @include sp {
+    transform: translateX($sp);
+  }
+}
+
+@mixin ty($pc: 0, $tab: $pc, $sp: $tab) {
+  transform: translateY($pc);
+
+  @include tab {
+    transform: translateY($tab);
+  }
+
+  @include sp {
+    transform: translateY($sp);
+  }
+}
+
+@mixin fs($pc: 0, $tab: $pc, $sp: $tab) {
   font-size: $pc;
 
-  @include tab-small {
+  @include tab {
     font-size: $tab;
   }
 
-  @include mq(s) {
+  @include sp {
     font-size: $sp;
   }
 }
 
-@mixin lh($pc: 1.8, $sp: 1.6) {
+@mixin ls($pc: 0, $tab: $pc, $sp: $tab) {
+  letter-spacing: $pc;
+
+  @include tab {
+    letter-spacing: $tab;
+  }
+
+  @include sp {
+    letter-spacing: $sp;
+  }
+}
+
+@mixin lh($pc: 0, $tab: $pc, $sp: $tab) {
   line-height: $pc;
 
-  @include mq(s) {
+  @include tab {
+    line-height: $tab;
+  }
+
+  @include sp {
     line-height: $sp;
   }
 }
 
-//slick
+@mixin width($pc: 100%, $tab: $pc, $sp: $tab) {
+  width: $pc;
 
-@mixin slicks {
-  font-size: 10px;
-}
+  @include tab {
+    width: $tab;
+  }
 
-//margin
-
-@mixin scbar($color: rgba(0, 0, 50, 0.5)) {
-  @media only screen and (min-width: 768px) {
-    /*スクロールバー全体*/
-    &::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    /*スクロールバーの動く部分*/
-    &::-webkit-scrollbar-thumb {
-      background-color: $color;
-      border-radius: 10px;
-      opacity: 0.3;
-    }
+  @include sp {
+    width: $sp;
   }
 }
 
-//absoluteを中央にする
-//引数
-//a→上下左右完全中央（デフォ） x→左右軸中央 y→上下軸中央 r→リセット
-@mixin positioncenter($target: 'a') {
-  @if $target == 'a' {
-    //上下左右完全
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-  } @else if $target == 'x' {
-    //左右中央
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-  } @else if $target == 'y' {
-    //上下中央
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-  } @else if $target == 'r' {
-    //リセットする
-    position: static;
-    top: auto;
-    transform: inherit;
-    -webkit-transform: inherit;
-    -ms-transform: inherit;
-  } @else {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
+@mixin height($pc: 100%, $tab: $pc, $sp: $tab) {
+  height: $pc;
+
+  @include tab {
+    height: $tab;
+  }
+
+  @include sp {
+    height: $sp;
   }
 }
+
+@mixin pt($pc: 0, $tab: $pc, $sp: $tab) {
+  padding-top: $pc;
+
+  @include tab {
+    padding-top: $tab;
+  }
+
+  @include sp {
+    padding-top: $sp;
+  }
+}
+
+@mixin pr($pc: 0, $tab: $pc, $sp: $tab) {
+  padding-right: $pc;
+
+  @include tab {
+    padding-right: $tab;
+  }
+
+  @include sp {
+    padding-right: $sp;
+  }
+}
+
+@mixin pb($pc: 0, $tab: $pc, $sp: $tab) {
+  padding-bottom: $pc;
+
+  @include tab {
+    padding-bottom: $tab;
+  }
+
+  @include sp {
+    padding-bottom: $sp;
+  }
+}
+
+@mixin pl($pc: 0, $tab: $pc, $sp: $tab) {
+  padding-left: $pc;
+
+  @include tab {
+    padding-left: $tab;
+  }
+
+  @include sp {
+    padding-left: $sp;
+  }
+}
+
+@mixin mt($pc: 0, $tab: $pc, $sp: $tab) {
+  margin-top: $pc;
+
+  @include tab {
+    margin-top: $tab;
+  }
+
+  @include sp {
+    margin-top: $sp;
+  }
+}
+
+@mixin mr($pc: 0, $tab: $pc, $sp: $tab) {
+  margin-right: $pc;
+
+  @include tab {
+    margin-right: $tab;
+  }
+
+  @include sp {
+    margin-right: $sp;
+  }
+}
+
+@mixin mb($pc: 0, $tab: $pc, $sp: $tab) {
+  margin-bottom: $pc;
+
+  @include tab {
+    margin-bottom: $tab;
+  }
+
+  @include sp {
+    margin-bottom: $sp;
+  }
+}
+
+@mixin ml($pc: 0, $tab: $pc, $sp: $tab) {
+  margin-left: $pc;
+
+  @include tab {
+    margin-left: $tab;
+  }
+
+  @include sp {
+    margin-left: $sp;
+  }
+}
+
+@mixin br($pc: 0, $tab: $pc, $sp: $tab) {
+  border-radius: $pc;
+
+  @include tab {
+    border-radius: $tab;
+  }
+
+  @include sp {
+    border-radius: $sp;
+  }
+}
+
+/*-------------------------     mixin3    -------------------------*/
+@mixin pos($top: 0, $right: 0, $bottom: null, $left: null) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin txy($pc1: 0, $sp1: $pc1, $pc2: $pc1, $sp2: $sp1) {
+  transform: translate($pc1, $pc2);
+
+  @include tab {
+    transform: translate($sp1, $sp2);
+  }
+}
+
+@mixin wh($pc1: 100%, $sp1: $pc1, $pc2: $pc1, $sp2: $sp1) {
+  @include width($pc1, $sp1);
+  @include height($pc2, $sp2);
+}
+
+@mixin px($pc1: 0, $sp1: $pc1, $pc2: $pc1, $sp2: $sp1) {
+  @include pr($pc1, $sp1);
+  @include pl($pc2, $sp2);
+}
+
+@mixin py($pc1: 0, $sp1: $pc1, $pc2: $pc1, $sp2: $sp1) {
+  @include pt($pc1, $sp1);
+  @include pb($pc2, $sp2);
+}
+
+@mixin pxy($pc1: 0, $sp1: $pc1, $pc2: $pc1, $sp2: $sp1) {
+  @include px($pc1, $sp1);
+  @include py($pc2, $sp2);
+}
+
+@mixin mx($pc1: 0, $sp1: $pc1, $pc2: $pc1, $sp2: $sp1) {
+  @include mr($pc1, $sp1);
+  @include ml($pc2, $sp2);
+}
+
+@mixin my($pc1: 0, $sp1: $pc1, $pc2: $pc1, $sp2: $sp1) {
+  @include mt($pc1, $sp1);
+  @include mb($pc2, $sp2);
+}
+
+@mixin my2($pc1: 0, $sp1: $pc1, $pc2: $pc1, $sp2: $sp1) {
+  @include mt($pc1, $sp1);
+  @include mb($pc2, $sp2);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin mxy($pc1: 0, $sp1: $pc1, $pc2: $pc1, $sp2: $sp1) {
+  @include mx($pc1, $sp1);
+  @include my($pc2, $sp2);
+}
+
+/*-------------------------     mixin4    -------------------------*/
+@mixin arrow($dir: right, $pc: 10px, $color: #333, $width: 1px) {
+  @include wh($pc, #{$pc * .8});
+  $deg: ('top': 225deg, 'right': -45deg, 'bottom': 45deg, 'left': 135deg);
+  content: '';
+  transform: rotate(#{map-get($deg, $dir)});
+  border-right: $color solid $width;
+  border-bottom: $color solid $width;
+}
+
+@mixin box($pc: 0, $tab: $pc, $sp: $tab) {
+  @include lh($pc, $tab, $sp);
+  @include height($pc, $tab, $sp);
+  @include br($pc / 2, $tab / 2, $sp / 2);
+}
+
+@mixin ctr {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+
+@mixin ctrx($pc: auto, $tab: $pc, $sp: $tab) {
+  @include ctr;
+  @include top($pc, $tab, $sp);
+  transform: translateX(50%);
+}
+
+@mixin ctrx2($pc: auto, $tab: $pc, $sp: $tab) {
+  @include ctrx;
+  @include bottom($pc, $tab, $sp);
+  top: auto;
+}
+
+@mixin ctry($pc: auto, $tab: $pc, $sp: $tab) {
+  @include ctr;
+  @include right($pc, $tab, $sp);
+  transform: translateX(50%);
+}
+
+@mixin ctry2($pc: auto, $tab: $pc, $sp: $tab) {
+  @include ctry;
+  @include left($pc, $tab, $sp);
+  right: auto;
+}
+
+@mixin flex($ai: stretch, $jc: space-between) {
+  display: flex;
+  align-items: $ai;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: $jc;
+}
+
+@mixin wrap($pc: 1080px) {
+  @include px(15px);
+  width: $pc + 15px*2;
+  margin: 0 auto;
+}
+
+/*-------------------------     変数    -------------------------*/
+/*font-wight*/
+$black: 900;
+$bold: 700;
+$Demi: 600;
+$medium :500;
+$regular: 400;
+$light: 300;

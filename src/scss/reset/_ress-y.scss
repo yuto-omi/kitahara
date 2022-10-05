@@ -11,6 +11,7 @@
 body,
 html {
   width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic Medium", "Yu Gothic", Verdana, Meiryo, sans-serif;
 }
 
 body {
@@ -24,9 +25,10 @@ dd {
   font-size: 1.6rem;
   line-height: 1.8;
   color: #262626;
-  font-family: 'Noto Sans', 'Noto Sans JP', -apple-system, BlinkMacSystemFont,
-    Roboto, 'Segoe UI', 'Helvetica Neue', HelveticaNeue, YuGothic,
-    'Yu Gothic Medium', 'Yu Gothic', Verdana, Meiryo, sans-serif;
+  // font-family: 'Noto Sans', 'Noto Sans JP', -apple-system, BlinkMacSystemFont,
+  //   Roboto, 'Segoe UI', 'Helvetica Neue', HelveticaNeue, YuGothic,
+  //   'Yu Gothic Medium', 'Yu Gothic', Verdana, Meiryo, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic Medium", "Yu Gothic", Verdana, Meiryo, sans-serif;
   letter-spacing: 0.05em;
 }
 
@@ -43,9 +45,10 @@ h2,
 h3,
 h4 {
   font-weight: 400;
-  font-family: 'Noto Sans', 'Noto Sans JP', -apple-system, BlinkMacSystemFont,
-    Roboto, 'Segoe UI', 'Helvetica Neue', HelveticaNeue, YuGothic,
-    'Yu Gothic Medium', 'Yu Gothic', Verdana, Meiryo, sans-serif;
+  // font-family: 'Noto Sans', 'Noto Sans JP', -apple-system, BlinkMacSystemFont,
+  //   Roboto, 'Segoe UI', 'Helvetica Neue', HelveticaNeue, YuGothic,
+  //   'Yu Gothic Medium', 'Yu Gothic', Verdana, Meiryo, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic Medium", "Yu Gothic", Verdana, Meiryo, sans-serif;
   letter-spacing: 0.05em;
 }
 
@@ -67,6 +70,18 @@ figure {
 
 ul {
   list-style: none;
+}
+
+h1,
+body,
+ul,
+li,
+figure,
+div,
+p
+{
+margin: 0;
+padding: 0;
 }
 
 img {

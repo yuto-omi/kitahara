@@ -1,0 +1,79 @@
+/*-------------------------*/
+/*-----フォントインポート---*/
+/*-------------------------*/
+
+//英語
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+
+/*--------------*/
+/*-----共通分---*/
+/*--------------*/
+
+//mixin
+@mixin text {
+    @include fs(14px);
+    font-weight: $bold;
+}
+
+@mixin fontJose {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+@mixin fontZen {
+    font-family: zen-maru-gothic, sans-serif;
+}
+
+//回転のキーフレーム
+@keyframes rotation1 {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+//ラップ
+.wrap-max {
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.wrap-1080 {
+    max-width: 1080px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.wrap-1280 {
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+h2 {
+    @include fs(32px);
+    font-weight: $bold;
+    @include fontZen;
+
+    span {
+        color: #32B584;
+        @include fs(16px);
+        @include fontJose;
+        font-weight: $bold;
+        letter-spacing: 0.04em;
+        display: block;
+        line-height: calc(21/16);
+    }
+}
+
+//疑似要素の右矢印
+@mixin arrow-right {
+    background: url(../../../assets/images/common/arrow-right.svg) no-repeat center center / contain;
+    @include width(14px);
+    @include height(21px);
+    content: "";
+    position: absolute;
+}
