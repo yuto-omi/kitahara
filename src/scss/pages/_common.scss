@@ -53,6 +53,7 @@
     width: 90%;
 }
 
+//見出し
 h2 {
     @include fs(32px);
     font-weight: $bold;
@@ -76,4 +77,24 @@ h2 {
     @include height(21px);
     content: "";
     position: absolute;
+}
+
+//画像の表示エフェクト
+.fade-in {
+    overflow: hidden;
+
+    img {
+        opacity: 0;
+        filter: blur(15px);
+        transform: scale(1.15);
+    }
+
+    &.active {
+        img {
+            opacity: 1;
+            filter: blur(0px);
+            transform: scale(1);
+            transition: all .4s linear;
+        }
+    }
 }

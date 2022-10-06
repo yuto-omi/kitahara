@@ -80,7 +80,7 @@
             当院について
         </h2>
         <div class="cont3__flex">
-            <figure><?php echo img("top", "cont3-img", "webp", null, "治療中風景") ?></figure>
+            <figure class="fade-in"><?php echo img("top", "cont3-img", "webp", null, "治療中風景") ?></figure>
             <div>
 
                 きたはら歯科は<br>
@@ -97,6 +97,49 @@
             <li><a href="">医院案内・設備・導入アプリ</a></li>
             <li><a href="">アクセス</a></li>
         </ul>
+    </div>
+</section>
+
+<section class="cont4">
+    <h2>
+        <span>PEDIATRIC</span>
+        小児歯科
+    </h2>
+    <ul class="slider">
+        <li>
+            <figure class="fade-in"><?php echo img("top", "cont4-slider1", "webp", null, "社内イメージ画像") ?></figure>
+        </li>
+        <li>
+            <figure class="fade-in"><?php echo img("top", "cont4-slider2", "webp", null, "社内イメージ画像") ?></figure>
+        </li>
+        <li>
+            <figure class="fade-in"><?php echo img("top", "cont4-slider3", "webp", null, "社内イメージ画像") ?></figure>
+        </li>
+        <li>
+            <figure class="fade-in"><?php echo img("top", "cont4-slider4", "webp", null, "社内イメージ画像") ?></figure>
+        </li>
+        <li>
+            <figure class="fade-in"><?php echo img("top", "cont4-slider5", "webp", null, "社内イメージ画像") ?></figure>
+        </li>
+    </ul>
+    <div class="wrap-1280">
+        <div class="cont4__flex">
+            <div>
+                <strong>
+                    キャッチコピーが入りますキャッチコピーが入りますキャッチコピーが入りますキャッチコピーが入ります
+                </strong>
+                <p>
+                    テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります（小児歯科についての思い）
+                </p>
+                <small>
+                    YOSHINORI KITAHARA
+                    <span>北原 佳典 院長</span>
+                </small>
+            </div>
+            <figure class="fade-in">
+                <?php echo img("top", "cont4-img", "webp", null, "北原佳典") ?>
+            </figure>
+        </div>
     </div>
 </section>
 

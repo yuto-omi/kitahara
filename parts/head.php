@@ -36,5 +36,8 @@
     <!-- end adobe-font -->
 
     <!-- css -->
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/slick-theme.min.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/slick.min.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/style/common.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/style/my-slick.css">
 </head>

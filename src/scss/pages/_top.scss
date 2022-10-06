@@ -109,6 +109,7 @@
         @include pt(56px);
         overflow: hidden;
         position: relative;
+        @include mb(100px);
 
         .wrap-1280 {
             position: relative;
@@ -128,23 +129,25 @@
 
             .cont3__flex {
                 display: flex;
-                justify-content: center;
+                justify-content: space-between;
                 align-items: center;
                 @include mt(40px);
 
                 figure {
-                    @include width(79%);
+                    @include width(50%);
                 }
 
                 div {
                     font-weight: $bold;
                     @include fs(32px);
                     position: relative;
+                    @include width(45%);
+                    letter-spacing: 0.12em;
 
                     &::after {
                         position: absolute;
-                        top: -220px;
-                        left: 380px;
+                        top: -192px;
+                        left: 320px;
                         content: "";
                         background: url(../../../assets/images/top/cont3-teeth.webp) no-repeat center center / contain;
                         width: 262px;
@@ -152,16 +155,28 @@
                     }
 
                     p {
+                        @include mt(56px);
                         @include fontJose;
                         @include fs(17px);
                         color: #32B584;
                         position: relative;
+                        @include pl(23px);
+                        border-bottom: 1px #32B584 solid;
+                        line-height: calc(20/17);
+                        @include width(60px);
 
                         &:before {
                             @include arrow-right;
-                            @include top(50%);
+                            @include top(30%);
                             @include ty(-50%);
                             @include left(0);
+                            transition-duration: 0.5s;
+                        }
+
+                        &:hover {
+                            &:before {
+                                @include left(5px);
+                            }
                         }
                     }
                 }
@@ -175,6 +190,7 @@
                 align-items: center;
                 flex-wrap: wrap;
                 margin: 0 auto;
+                @include mt(64px);
 
                 li {
                     @include width(calc(30% - 30px * 2/3));
@@ -183,13 +199,14 @@
                     position: relative;
                     border-bottom: 1px solid #DDDDDD;
                     @include pl(31px);
+                    line-height: 2.2;
 
                     &:not(:nth-of-type(3n+1)) {
                         @include ml(30px);
                     }
 
                     &:nth-of-type(n+4) {
-                        @include mt(27px);
+                        @include mt(16px);
                     }
 
                     &:before {
@@ -206,6 +223,99 @@
                         }
                     }
                 }
+            }
+        }
+    }
+
+    .cont4 {
+        background: #D8FBD1;
+        @include pt(88px);
+        overflow: hidden;
+
+        h2 {
+            position: relative;
+            margin: 0 auto;
+            text-align: center;
+            @include width(150px);
+
+            &:before {
+                position: absolute;
+                content: "";
+                background: url(../../../assets/images/top/cont4-h2-left.webp) no-repeat center center / contain;
+                @include width(117px);
+                @include height(123px);
+                @include left(-128px);
+                @include top(50%);
+                @include ty(-50%);
+            }
+
+            &::after {
+                position: absolute;
+                content: "";
+                background: url(../../../assets/images/top/cont4-h2-right.webp) no-repeat center center / contain;
+                @include width(117px);
+                @include height(123px);
+                @include left(160px);
+                @include top(50%);
+                @include ty(-50%);
+            }
+        }
+
+        .slider {
+            @include mt(90px);
+            position: relative;
+
+            &:before {
+                position: absolute;
+                content: "";
+                @include top(-42px);
+                @include left(50%);
+                @include tx(-50%);
+                background: url(../../../assets/images/top/cont4-text.svg) no-repeat center center / contain;
+                width: 1508px;
+                height: 101px;
+                z-index: 1;
+            }
+        }
+
+        .cont4__flex {
+            display: flex;
+            justify-content: space-between;
+            @include mt(60px);
+
+            div {
+                @include width(45%);
+                @include mt(24px);
+
+                strong {
+                    @include fs(24px);
+                    letter-spacing: 0.012em;
+                    font-weight: $bold;
+                }
+
+                p {
+                    @include mt(32px);
+                    @include fs(16px);
+                    font-weight: $bold;
+                }
+
+                small {
+                    @include fs(14px);
+                    font-weight: $bold;
+                    @include fontJose;
+                    color: #32B584;
+                    display: block;
+                    @include mt(48px);
+                    span {
+                        @include fs(24px);
+                        display: block;
+                        @include mt(8px);
+                    }
+                }
+            }
+
+            figure {
+                @include width(50%);
             }
         }
     }
